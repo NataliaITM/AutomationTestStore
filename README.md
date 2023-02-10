@@ -1,1 +1,0 @@
-# AutomationTestStore
