@@ -1,0 +1,20 @@
+{
+  "name": "automationteststore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:dashboard": "npx cypress run --record --key 6a9c6043-a801-47dd-a480-158529212913"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NataliaFiryn/AutomationTestStore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NataliaFiryn/AutomationTestStore/issues"
+  },
+  "homepage": "https://github.com/NataliaFiryn/AutomationTestStore#readme"
+}
