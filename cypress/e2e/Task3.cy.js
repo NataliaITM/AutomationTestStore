@@ -44,7 +44,7 @@ describe('The quantity and value of the basket above the menu bar of the website
         addToCard.addProductToCardByUsingSearchBox('lipstick')
         navigateTo.TshirtPage()
         addToCard.addTshirtToCard()
-
+        
         cy.get('#totals_table').find('tbody tr').eq(0).find('td').eq(1).invoke('prop','textContent').then(price =>{
             cy.get('.container-fluid').find('.cart_total').should('contain', price)
         })
