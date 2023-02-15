@@ -1,9 +1,9 @@
-export class NavigationPage{
-    TshirtPage(){
+export class NavigationPage {
+    TshirtPage() {
         cy.get('#categorymenu').contains('Apparel & accessories').click()
         cy.get('[class="thumbnails row"]').contains('T-shirts').click()
     }
-    ShoesPage(){
+    ShoesPage() {
         cy.get('#categorymenu').contains('Apparel & accessories').click()
         cy.get('[class="thumbnails row"]').contains('Shoes').click()
     }

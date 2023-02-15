@@ -4,7 +4,7 @@ import { navigateTo } from "../support/page_objects/navigationPage"
 
 describe('The quantity and value of the basket above the menu bar of the website changes', () => {
     beforeEach('Open Automation Test store', () => {
-      cy.visit('/')
+        cy.visit('/')
     })
     it('Add one product to cart', () => {
         inCard.topCardIsEmpty()
