@@ -22,6 +22,8 @@ export class checkOutForm {
             if (city !== null)cy.wrap(guestForm).find(onCheckOutForm.cityField).type(city)
             if (region_state !== null)cy.wrap(guestForm).find(onCheckOutForm.region_stateField).select(region_state)
             if (postcode !== null)cy.wrap(guestForm).find(onCheckOutForm.postcodeField).type(postcode)
+            
+
             cy.wrap(guestForm).find('button[type="submit"]').click()
            })
     }
@@ -37,11 +39,13 @@ export class checkOutForm {
     zip_postecodeValidationMessage(){
         cy.get(onCheckOutForm.visibleHelpBlock).should('contain','Zip/postal code must be between 3 and 10 characters!')
     }
+    zip_postecodeValidationMessage(){
+        cy.get(onCheckOutForm.visibleHelpBlock).should('contain','Zip/postal code must be between 3 and 10 characters!')
+    }
     confirmOrder(){
         cy.get(onCheckOutForm.confirmOrderButton).click()
-        cy.get('#maincontainer').find('[class="maintext"]').contains('Your Order Has Been Processed!')
+        cy.get('#maincontainer').find('[class="maintext"]').should('contain','Your Order Has Been Processed!')
     }
-    
 }
 
 export const onCheckOutForm = new checkOutForm()

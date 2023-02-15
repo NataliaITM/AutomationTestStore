@@ -14,7 +14,7 @@ describe('Add to card 3 products and order', () => {
    addToCard.addProductToCardByUsingSearchBox('eye')
    addToCard.cartCheckOutGuestCheckoutOption()
    onCheckOutForm.guestFormPersonalDetails('Herkules','Poirot','Poirot@example.com')
-   onCheckOutForm.guestFormAddress('Whitehaven Mansions','London','Greater London','E1 7AY' )
-   onCheckOutForm.confirmOrder
+   onCheckOutForm.guestFormAddress('Whitehaven Mansions','London','Greater London','E1 7AY','United Kingdom' )
+   onCheckOutForm.confirmOrder()
   })
 })
