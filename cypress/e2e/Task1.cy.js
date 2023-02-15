@@ -3,10 +3,8 @@ import { onCheckOutForm } from "../support/page_objects/checkoutForms"
 import { navigateTo } from "../support/page_objects/navigationPage"
 
 describe('Add to card 3 products and order', () => {
-  beforeEach('Open Automation Test store', () => {
-    cy.visit('/')
-  })
   it('Happy Path', () => {
+  cy.visit('/')
    navigateTo.TshirtPage()
    addToCard.addTshirtToCard()
    navigateTo.ShoesPage()

@@ -27,7 +27,6 @@ quantityOfAllProductsInCardMatchQuantityInTopCard(){
     })
     cy.get('@counter').then(allProductsQuantity =>
     cy.get('.container-fluid').find('.block_7').find(inCard.topCardTotalQuantity).should('contain', allProductsQuantity))
-        
     }
 }
 export const inCard = new insideCard()

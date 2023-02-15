@@ -3,6 +3,7 @@ export class checkOutForm {
     lastnameField = '#guestFrm_lastname'
     emailField = '#guestFrm_email'
     addressField = '#guestFrm_address_1'
+    countryField = '#guestFrm_country_id'
     cityField = '#guestFrm_city'
     region_stateField = '#guestFrm_zone_id'
     postcodeField = '#guestFrm_postcode'
@@ -16,14 +17,13 @@ export class checkOutForm {
             cy.wrap(guestForm).find(onCheckOutForm.emailField).type(email)
            })
     }
-    guestFormAddress(address,city,region_state,postcode){
+    guestFormAddress(address,city,region_state,postcode,country){
         cy.get('#maincontainer').find('#guestFrm[enctype="multipart/form-data"]').then(guestForm => {
             if (address !== null)cy.wrap(guestForm).find(onCheckOutForm.addressField).type(address)
             if (city !== null)cy.wrap(guestForm).find(onCheckOutForm.cityField).type(city)
+            cy.wrap(guestForm).find(onCheckOutForm.countryField).select(country)
             if (region_state !== null)cy.wrap(guestForm).find(onCheckOutForm.region_stateField).select(region_state)
             if (postcode !== null)cy.wrap(guestForm).find(onCheckOutForm.postcodeField).type(postcode)
-            
-
             cy.wrap(guestForm).find('button[type="submit"]').click()
            })
     }
@@ -41,6 +41,9 @@ export class checkOutForm {
     }
     zip_postecodeValidationMessage(){
         cy.get(onCheckOutForm.visibleHelpBlock).should('contain','Zip/postal code must be between 3 and 10 characters!')
+    }
+    countryValidationMessage(){
+       cy.get(onCheckOutForm.visibleHelpBlock).should('contain','Please select a country!')
     }
     confirmOrder(){
         cy.get(onCheckOutForm.confirmOrderButton).click()
