@@ -1,4 +1,5 @@
 export class checkOutForm {
+    wholeForm = '#maincontainer #guestFrm'
     firstNameField = '#guestFrm_firstname'
     lastnameField = '#guestFrm_lastname'
     emailField = '#guestFrm_email'
@@ -9,22 +10,24 @@ export class checkOutForm {
     postcodeField = '#guestFrm_postcode'
     confirmOrderButton = '#checkout_btn[title="Confirm Order"]'
     visibleHelpBlock = '.help-block:visible'
+    submitFormButton = '#guestFrm button'
+    orderSubmitedMessege = '#maincontainer [class="maintext"]'
 
     guestFormPersonalDetails(firstname, lastname, email) {
-        cy.get('#maincontainer').find('#guestFrm[enctype="multipart/form-data"]').then(guestForm => {
+        cy.get(onCheckOutForm.wholeForm).then(guestForm => {
             cy.wrap(guestForm).find(onCheckOutForm.firstNameField).type(firstname)
             cy.wrap(guestForm).find(onCheckOutForm.lastnameField).type(lastname)
             cy.wrap(guestForm).find(onCheckOutForm.emailField).type(email)
         })
     }
     guestFormAddress(address, city, region_state, postcode, country) {
-        cy.get('#maincontainer').find('#guestFrm[enctype="multipart/form-data"]').then(guestForm => {
+        cy.get(onCheckOutForm.wholeForm).then(guestForm => {
             if (address !== null) cy.wrap(guestForm).find(onCheckOutForm.addressField).type(address)
             if (city !== null) cy.wrap(guestForm).find(onCheckOutForm.cityField).type(city)
             cy.wrap(guestForm).find(onCheckOutForm.countryField).select(country)
             if (region_state !== null) cy.wrap(guestForm).find(onCheckOutForm.region_stateField).select(region_state)
             if (postcode !== null) cy.wrap(guestForm).find(onCheckOutForm.postcodeField).type(postcode)
-            cy.wrap(guestForm).find('button[type="submit"]').click()
+            cy.get(onCheckOutForm.submitFormButton).click()
         })
     }
     addressValidationMessage() {
@@ -47,7 +50,7 @@ export class checkOutForm {
     }
     confirmOrder() {
         cy.get(onCheckOutForm.confirmOrderButton).click()
-        cy.get('#maincontainer').find('[class="maintext"]').should('contain', 'Your Order Has Been Processed!')
+        cy.get(onCheckOutForm.orderSubmitedMessege).should('contain', 'Your Order Has Been Processed!')
     }
 }
 
